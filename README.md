@@ -1,4 +1,4 @@
-# u-currency-converter
+# currency-converter
 
 ## Running the app
 1. Clone the repo
