@@ -4,16 +4,14 @@ import App from '../../app/components/app';
 import React from 'react';
 const sheet = new ServerStyleSheet();
 
-// sdkPromiseResult.then((res) => {
-//   console.log('RES', res);
-// });
+const jsxString = renderToString(sheet.collectStyles(<App />));
+const styleTags = sheet.getStyleTags();
 
-// console.log({ fetchAssetsByType, fetchTickerForCurrency });
-
-const createInitialHtmlString = (jsxString, styleTags) => `
+const createInitialHtmlString = () => `
 <html>
   <head>
     <title>Uphold Frontend Assessment</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ${styleTags}
   </head>
@@ -24,9 +22,7 @@ const createInitialHtmlString = (jsxString, styleTags) => `
 </html>
 `;
 
-const jsxString = renderToString(sheet.collectStyles(<App />));
-const styleTags = sheet.getStyleTags();
-const html = createInitialHtmlString(jsxString, styleTags);
+const html = createInitialHtmlString();
 
 export default (request, response, next) => {
   try {

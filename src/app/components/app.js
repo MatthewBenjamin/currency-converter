@@ -9,6 +9,7 @@ import theme from '../theme';
 import usePerformDebouncedConversionCalculation from './use-perform-debounced-conversion-calc';
 
 const StyledDiv = styled.div`
+  /* TODO: probably don't need to duplicate since this is in global styles */
   font-family: ${({ theme: { upholdFontFamily } }) => upholdFontFamily};
   max-width: 800px;
   margin: 0 auto;

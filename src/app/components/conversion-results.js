@@ -41,7 +41,6 @@ const PromptStyledP = styled.p`
 `;
 
 const ConversionResults = ({ currencyAmount, conversionResults, assets }) => {
-  // TODO: fix bug for zero values that aren't INITIAL_CURRENCY_AMOUNT, i.e. 00.00
   const showResults = currencyAmount !== INITIAL_CURRENCY_AMOUNT;
 
   return (

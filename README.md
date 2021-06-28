@@ -36,3 +36,4 @@
 	- end-to-end tests with Cypress
 - Component library
 	- components could be refactored to better reflect Uphold's design system. I.e. add design tokens to theme provider, etc.
+- Add proper logging, analytics, error handling

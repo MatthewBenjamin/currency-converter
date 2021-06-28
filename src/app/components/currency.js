@@ -41,7 +41,6 @@ const DropdownIcon = () => (
   </span>
 );
 
-// 0.75rem
 export const CurrencyWithLogo = ({ logoImageUrl, currentCurrency, showDropdownIcon }) => (
   <>
     <Logo hideLogoOnMobile={showDropdownIcon} imageUrl={logoImageUrl} />
