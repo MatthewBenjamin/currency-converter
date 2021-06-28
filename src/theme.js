@@ -3,13 +3,13 @@
 //  -  sizing, standard padding, margins, etc
 //  -  typography
 const theme = {
-    logoSize: '25px',
-    upholdFontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-    colors: {
-      paragraph: 'rgb(104, 119, 141)',
-      heading: 'rgb(60, 74, 91)'
-    },
-    mobileBreakpoint: '@media screen and (max-width: 480px)'
-}
+  colors: {
+    heading: 'rgb(60, 74, 91)',
+    paragraph: 'rgb(104, 119, 141)',
+  },
+  logoSize: '25px',
+  mobileBreakpoint: '@media screen and (max-width: 480px)',
+  upholdFontFamily: "proxima-nova, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+};
 
-export default theme
+export default theme;

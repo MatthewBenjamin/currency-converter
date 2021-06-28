@@ -1,7 +1,7 @@
+import { CurrencyContainerStylesMixin, CurrencyWithLogo } from './currency';
+import Dropdown from './dropdown';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Dropdown from './dropdown'
-import { CurrencyContainerStylesMixin, CurrencyWithLogo } from './currency'
 
 const StyledDiv = styled.div`
   display: flex;
@@ -19,7 +19,11 @@ const StyledDiv = styled.div`
     flex-grow: 1;
     background-color: transparent;
     border: none;
-    color: ${({ theme: { colors: { paragraph }}}) => paragraph};
+    color: ${({
+      theme: {
+        colors: { paragraph },
+      },
+    }) => paragraph};
     font-size: 2rem;
     outline: none;
     padding-left: 1rem;
@@ -28,38 +32,45 @@ const StyledDiv = styled.div`
   button {
     ${CurrencyContainerStylesMixin}
   }
-`
+`;
 
 const InputBox = ({ currencyAmount, setCurrencyAmount, assets, currentCurrency, setCurrentCurrency }) => {
-  const [dropdownIsActive, setDropdownIsActive] = useState(false)
+  const [dropdownIsActive, setDropdownIsActive] = useState(false);
   const handleOnChangeWithInputValidation = (e) => {
     e.preventDefault();
     // replace chars that are NOT: negative sign, decimal, digit
     // https://stackoverflow.com/a/9409894
-    const newInputValue = e.target.value.replace(/[^\d.-]/g, '')
+    const newInputValue = e.target.value.replace(/[^\d.-]/g, '');
 
     // check if input is still valid (could have double decimals, negative signs, etc)
     // TODO: more robust regex check above would probably make this check obsolete
     if (!Number.isNaN(Number(newInputValue))) {
       setCurrencyAmount(newInputValue);
     }
-  }
+  };
 
-  const logoImageUrl = assets?.[currentCurrency]?.image
+  const logoImageUrl = assets?.[currentCurrency]?.image;
 
   return (
     <StyledDiv>
       {/* TODO: add <label></label> for accessibility */}
-      <input
-        name="currency-amount"
-        onChange={handleOnChangeWithInputValidation}
-        value={currencyAmount}
+      <input name="currency-amount" onChange={handleOnChangeWithInputValidation} value={currencyAmount} />
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          setDropdownIsActive(!dropdownIsActive);
+        }}
+      >
+        <CurrencyWithLogo currentCurrency={currentCurrency} logoImageUrl={logoImageUrl} showDropdownIcon />
+      </button>
+      <Dropdown
+        assets={assets}
+        currentCurrency={currentCurrency}
+        dropdownIsActive={dropdownIsActive}
+        setCurrencyAmount={setCurrencyAmount}
+        setCurrentCurrency={setCurrentCurrency}
+        setDropdownIsActive={setDropdownIsActive}
       />
-      <button onClick={e => {
-        e.preventDefault()
-        setDropdownIsActive(!dropdownIsActive)
-      }}><CurrencyWithLogo logoImageUrl={logoImageUrl} currentCurrency={currentCurrency} showDropdownIcon /></button>
-      <Dropdown setCurrencyAmount={setCurrencyAmount} setDropdownIsActive={setDropdownIsActive} dropdownIsActive={dropdownIsActive} assets={assets} currentCurrency={currentCurrency} setCurrentCurrency={setCurrentCurrency} />
     </StyledDiv>
   );
 };
