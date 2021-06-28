@@ -4,8 +4,8 @@
 1. Clone the repo
 2. Checkout `master` branch
 3. Node 14 recommended
-4. `npm i` // or `npm ci`
-5. `npm run dev` Runs the app in the development mode.
+4. `npm i` or `npm ci`
+5. `npm run dev` Runs the app in the development mode. Or you can run `npm run build && npm start` for production mode.
 6. Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 ## High Level
