@@ -6,10 +6,10 @@
   "scripts": {
     "build:client": "parcel build --public-url ./dist/ ./src/app/index.js",
     "build:dev": "parcel watch --public-url ./dist/ ./src/app/index.js | parcel watch -d dist-server --target node ./src/server/index.js",
-    "build:server": "parcel build -d dist-server --target node ./src/server/index.js",
+    "build:server": "parcel build -d dist --out-file server.js --target node ./src/server/index.js",
     "build": "npm run build:client && npm run build:server",
-    "dev": "npm run build && parcel --public-url ./dist/ ./src/app/index.js | parcel -d dist-server --target nodemon ./src/server/index.js | nodemon ./dist-server/index.js",
-    "start": "npm run build && node ./dist-server/index.js",
+    "dev": "npm run build && parcel --public-url ./dist/ ./src/app/index.js | parcel -d dist --out-file server.js --target node ./src/server/index.js | nodemon ./dist/server.js",
+    "start": "npm run build && node ./dist/server.js",
     "lint": "./node_modules/.bin/eslint ./src",
     "lint:fix": "./node_modules/.bin/eslint --fix ./src",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -53,7 +53,6 @@ const App = () => {
 
   useEffect(() => {
     fetchAssetsByType().then((responseAssets) => {
-      console.log('responseAssets', responseAssets);
       setAssets(responseAssets);
     });
   }, [setAssets]);
