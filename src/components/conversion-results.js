@@ -24,7 +24,11 @@ const StyledCurrencyContainer = styled.span`
 `;
 
 const StyledSpanConvertedAmount = styled.span`
-  color: rgb(46, 57, 73);
+  color: ${({
+    theme: {
+      colors: { number },
+    },
+  }) => number};
   margin-left: 1rem;
   font-size: 1.5rem;
 `;

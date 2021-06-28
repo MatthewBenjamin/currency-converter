@@ -21,9 +21,9 @@ const StyledDiv = styled.div`
     border: none;
     color: ${({
       theme: {
-        colors: { paragraph },
+        colors: { number },
       },
-    }) => paragraph};
+    }) => number};
     font-size: 2rem;
     outline: none;
     padding-left: 1rem;
@@ -54,7 +54,12 @@ const InputBox = ({ currencyAmount, setCurrencyAmount, assets, currentCurrency, 
   return (
     <StyledDiv>
       {/* TODO: add <label></label> for accessibility */}
-      <input name="currency-amount" onChange={handleOnChangeWithInputValidation} value={currencyAmount} />
+      <input
+        name="currency-amount"
+        onChange={handleOnChangeWithInputValidation}
+        placeholder="0.00"
+        value={currencyAmount}
+      />
       <button
         onClick={(e) => {
           e.preventDefault();
