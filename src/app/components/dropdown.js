@@ -54,8 +54,8 @@ const CurrencyListItem = ({
 }) => (
   <li key={code}>
     <button
-      onClick={(e) => {
-        e.preventDefault();
+      onClick={(event) => {
+        event.preventDefault();
 
         // TODO: need more safety so these are never invoked when undefined
         if (!isCurrentCurrency) {

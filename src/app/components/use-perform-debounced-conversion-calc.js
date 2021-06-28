@@ -7,6 +7,7 @@ const usePerformDebouncedConversionCalculation = (currencyAmount, tradingPairs) 
   // console.log('usePerformDebouncedConversionCalculation')
   const [conversionResults, setConversionResults] = useState([]);
 
+  // eslint-disable-next-line unicorn/consistent-function-scoping
   const calculateNewConvertedValues = (currencyAmount, tradingPairs, setConversionResults) => {
     // console.log('calculateNewConvertedValues')
     if (currencyAmount !== INITIAL_CURRENCY_AMOUNT) {

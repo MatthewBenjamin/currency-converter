@@ -52,23 +52,24 @@ const App = () => {
   const conversionResults = usePerformDebouncedConversionCalculation(currencyAmount, tradingPairs, assets);
 
   useEffect(() => {
-    fetchAssetsByType().then((resAssets) => {
-      setAssets(resAssets);
+    fetchAssetsByType().then((responseAssets) => {
+      console.log('responseAssets', responseAssets);
+      setAssets(responseAssets);
     });
   }, [setAssets]);
 
   useEffect(() => {
-    if (Object.keys(assets).length) {
+    if (Object.keys(assets).length > 0) {
       fetchTickerForCurrency(currentCurrency).then((data) => {
-        const filteredData = data.reduce((acc, current) => {
+        const filteredData = data.reduce((accumulator, current) => {
           const { currency, pair } = current;
           const codeForTradingPair = pair.replace(currency, '').replace('-', '');
 
           if (currency === currentCurrency && assets[codeForTradingPair]) {
-            acc.push({ ...current, codeForTradingPair });
+            accumulator.push({ ...current, codeForTradingPair });
           }
 
-          return acc;
+          return accumulator;
         }, []);
 
         setTradingPairs(filteredData);

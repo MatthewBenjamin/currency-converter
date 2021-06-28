@@ -1,11 +1,12 @@
+import { hydrate } from 'react-dom';
 import App from './components/app';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-ReactDOM.render(
+// TODO: consider render vs hydrate
+hydrate(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   // eslint-disable-next-line no-undef
-  document.getElementById('root')
+  document.querySelector('#root')
 );

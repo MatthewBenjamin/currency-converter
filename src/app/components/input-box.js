@@ -36,11 +36,11 @@ const StyledDiv = styled.div`
 
 const InputBox = ({ currencyAmount, setCurrencyAmount, assets, currentCurrency, setCurrentCurrency }) => {
   const [dropdownIsActive, setDropdownIsActive] = useState(false);
-  const handleOnChangeWithInputValidation = (e) => {
-    e.preventDefault();
+  const handleOnChangeWithInputValidation = (event) => {
+    event.preventDefault();
     // replace chars that are NOT: negative sign, decimal, digit
     // https://stackoverflow.com/a/9409894
-    const newInputValue = e.target.value.replace(/[^\d.-]/g, '');
+    const newInputValue = event.target.value.replace(/[^\d.-]/g, '');
 
     // check if input is still valid (could have double decimals, negative signs, etc)
     // TODO: more robust regex check above would probably make this check obsolete
@@ -61,8 +61,8 @@ const InputBox = ({ currencyAmount, setCurrencyAmount, assets, currentCurrency, 
         value={currencyAmount}
       />
       <button
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={(event) => {
+          event.preventDefault();
           setDropdownIsActive(!dropdownIsActive);
         }}
       >
