@@ -5,7 +5,7 @@
 const theme = {
   colors: {
     heading: 'rgb(60, 74, 91)',
-    number: 'color: rgb(46, 57, 73)',
+    number: 'rgb(46, 57, 73)',
     paragraph: 'rgb(104, 119, 141)',
   },
   logoSize: '25px',
