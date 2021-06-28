@@ -2,7 +2,7 @@ import { CRYPTO_TYPE, FIAT_TYPE } from './constants';
 import SDK from '@uphold/uphold-sdk-javascript';
 
 const sdk = new SDK({
-  baseUrl: 'http://api-sandbox.uphold.com',
+  // baseUrl: 'http://api-sandbox.uphold.com',
   clientId: 'foo',
   clientSecret: 'bar',
 });
